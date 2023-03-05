@@ -1,0 +1,53 @@
+@use '../utils' as u;
+
+.slider {
+    width: 100%;
+    height: 50vh;
+    position: relative;
+    overflow: hidden;
+
+    &-container {
+        --slider-index: 0;
+        width: 100%;
+        height: 100%;
+        background-color: red;
+        display: flex;
+        flex-grow: 1;
+        transform: translateX(calc(var(--slider-index) * -100%));
+        transition: all 250ms ease-in-out;
+    }
+
+    &-image {
+        flex: 0 0 100%;
+    }
+
+    &-images {
+        width: 100%;
+        height: 50vh;
+        background-size: contain;
+    }
+
+    &-prev {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        z-index: 10;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    &-next {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        z-index: 10;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+}
