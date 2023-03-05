@@ -19,12 +19,17 @@
 
     &-image {
         flex: 0 0 100%;
+        user-drag: none;  
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-drag: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
     }
 
     &-images {
         width: 100%;
         height: 50vh;
-        background-size: contain;
     }
 
     &-prev {
@@ -49,5 +54,53 @@
         z-index: 10;
         font-size: 1.5rem;
         cursor: pointer;
+    }
+}
+
+.progress {
+    width: 100%;
+    height: 30vh;
+    position: relative;
+    overflow: hidden;
+
+    &-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+
+    &-images {
+        flex: 0 0 calc(100% / 3);
+        width: calc(100% / 3);
+        height: 100%;
+    }
+
+    &-image {
+        width: 100%;
+        height: 100%;
+        user-drag: none;  
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-drag: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    }
+
+    &-line {
+        position: absolute;
+        bottom: 0;
+        width: calc(100% / 3);
+        height: 1rem;
+        background-color: u.$blueColor;
+    }
+}
+
+@media screen and (min-width: u.rem(1920)) {
+    .container {
+        margin: 0 auto;
+        width: u.rem(1920);
     }
 }

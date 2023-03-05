@@ -33,26 +33,45 @@ const SliderHeader = () => {
         }, 4000);
         return () => clearInterval(interval);
     }, []);
+
+    function progressBarHandler(index) {
+        const slider = nextBtnRef.current.closest('.slider').querySelector('.slider-container')
+        slider.style.setProperty('--slider-index', index)
+    }
     
     return (
         <React.Fragment>
-            <div className='slider'>
-                <div className='slider-prev' onClick={() => sliderRightClick("leftHandler")}>
-                    <GrFormPrevious />
-                </div>
-                
-                <div className='slider-container'>
-                    {ImageObject && ImageObject.map((obj, index) => {
-                        return(
-                        <div className='slider-image' key={index} >
-                            <input type="image" img="true"  src={require(`../../static/image/${obj.src}`)} alt="logo" className="slider-images" />
-                        </div>
-                        )
-                    })}
-                </div>
+            <div className='container'>
+                <div className='slider'>
+                    <div className='slider-prev' onClick={() => sliderRightClick("leftHandler")}>
+                        <GrFormPrevious />
+                    </div>
                     
-                <div className='slider-next' onClick={() => sliderRightClick("rightHandler")} ref={nextBtnRef}>
-                    <GrFormNext />
+                    <div className='slider-container'>
+                        {ImageObject && ImageObject.map((obj, index) => {
+                            return(
+                            <div className='slider-image' key={index} >
+                                <input type="image" img="true"  src={require(`../../static/image/${obj.src}`)} alt="logo" className="slider-images" />
+                            </div>
+                            )
+                        })}
+                    </div>
+                        
+                    <div className='slider-next' onClick={() => sliderRightClick("rightHandler")} ref={nextBtnRef}>
+                        <GrFormNext />
+                    </div>
+                </div>
+
+                <div className='progress'>
+                    <div className='progress-container'>
+                        {ImageObject && ImageObject.map((obj, index) => {
+                            return(
+                            <div className='progress-images' key={index} >
+                                <input type="image" img="true"  src={require(`../../static/image/${obj.src}`)} alt="logo" className="progress-image active" onClick={() => progressBarHandler(index)} />
+                            </div>
+                            )
+                        })}
+                    </div>
                 </div>
             </div>
         </React.Fragment>

@@ -1,7 +1,7 @@
 export const ImageObject = [
     {
         id: 1,
-        src: 'beautiful-landscape-pine-forest-with-mesmerizing-mountain-views-free-vector.jpg',
+        src: 'purple-and-pink-minimalist-mountain-range-at-sunset-matthias-hauser.jpg',
         name: 'forest'
     },
     {
